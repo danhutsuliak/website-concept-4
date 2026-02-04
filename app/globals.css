@@ -2,7 +2,15 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #11181c;
+
+  --greenflow: #00e676;
+  --greenflow-ink: #053a22;
+  --mint: #eafff4;
+  --surface: #ffffff;
+  --surface-2: #f7fffb;
+  --ink: #11181c;
+  --ink-muted: rgba(17, 24, 28, 0.72);
 }
 
 @theme inline {
@@ -10,17 +18,60 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-greenflow: var(--greenflow);
+  --color-greenflow-ink: var(--greenflow-ink);
+  --color-mint: var(--mint);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #06090b;
+    --foreground: #eef5f0;
+
+    --mint: rgba(0, 230, 118, 0.08);
+    --surface: rgba(255, 255, 255, 0.06);
+    --surface-2: rgba(255, 255, 255, 0.04);
+    --ink: #eef5f0;
+    --ink-muted: rgba(238, 245, 240, 0.74);
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--greenflow) 30%, white);
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 200ms ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 200ms ease-out;
 }
